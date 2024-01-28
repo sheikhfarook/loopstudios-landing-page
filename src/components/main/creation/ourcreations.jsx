@@ -22,7 +22,7 @@ const OurCreations = () => {
       <div
         className="w-[9.8125rem] h-[2.5rem] m-auto font-alata fonr-[400]
          border-2 border-[#000] pt-2.5 text-[#000] text-center cursor-pointer  
-          uppercase leading-[0.875rem] tracking-[0.3125rem] hover:bg-[#000] hover:text-[#FFF]  md:hidden">
+          uppercase leading-[0.875rem] tracking-[0.3125rem] hover:bg-[#000] hover:text-[#FFF]  md:hidden max-sm:mb-10">
         SEE ALL
       </div>
     </div>
