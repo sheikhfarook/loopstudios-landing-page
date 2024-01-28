@@ -11,6 +11,9 @@ function App() {
     <div>
       <BackGroundImage />
       <VrInFo />
+      <OurCreations />
+      <SocialCommunity />
+      <TailwindIndicator />
     </div>
   );
 }
