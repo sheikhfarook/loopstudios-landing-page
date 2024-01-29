@@ -1,6 +1,22 @@
 import logo from "../../assets/logo.svg";
+import { useDisclosure } from "@chakra-ui/react";
+import React from "react";
+import hamburger from "../../assets/icon-hamburger.svg";
+
+import {
+  Drawer,
+  DrawerBody,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  Button,
+} from "@chakra-ui/react";
 
 const Header = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = React.useRef();
+
   return (
     <div className="md:mt-[-40.5%] md:mx-[12%] md:space-y-[11%] max-sm:mt-[-165%] max-sm:mx-[7%] max-sm:space-y-[45%]">
       <div className="flex justify-between">
@@ -11,6 +27,46 @@ const Header = () => {
             alt=""
           />
         </div>
+        <div className="md:hidden mr-[-18.3px]">
+          <Button ref={btnRef} colorScheme="white" onClick={onOpen}>
+            <img className="mb-[13px] " src={hamburger} alt="" />
+          </Button>
+          <Drawer
+            isOpen={isOpen}
+            // placement="center"
+            size="100vh"
+            onClose={onClose}
+            finalFocusRef={btnRef}>
+            <DrawerOverlay />
+            <DrawerContent bg="black">
+              <DrawerCloseButton
+                fontSize="1.2rem"
+                marginTop={"1.5rem"}
+                color="white"
+                marginRight={"0rem"}
+              />
+              <DrawerHeader>
+                <div>
+                  <img
+                    className="bg-black w-[9rem] h-[1.5rem] mt-[1.5rem]"
+                    src={logo}
+                    alt=""
+                  />
+                </div>
+              </DrawerHeader>
+              <DrawerBody>
+                <div className="font-josefin text-[1.5rem] text-[#FFF] uppercase font-[300] mt-32 space-y-4">
+                  <div className="cursor-pointer ">About</div>
+                  <div className="cursor-pointer ">Careers</div>
+                  <div className="cursor-pointer ">Events</div>
+                  <div className="cursor-pointer">Products</div>
+                  <div className="cursor-pointer">Support</div>
+                </div>
+              </DrawerBody>
+            </DrawerContent>
+          </Drawer>
+        </div>
+
         <div
           className="flex gap-[2rem] hover:underline-offset-8 text-[0.9375rem] 
         font-[400] text-[#FFF] font-alata my-auto
